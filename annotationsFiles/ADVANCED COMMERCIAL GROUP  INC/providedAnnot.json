@@ -1,0 +1,288 @@
+{
+  "images": [
+    {
+      "width": 1275,
+      "height": 1650,
+      "id": 0,
+      "file_name": "images/6/fb69d4d3-SHIPL000130_page-00011.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "id": 0,
+      "name": "BalanceDue"
+    },
+    {
+      "id": 1,
+      "name": "BalanceDueValue"
+    },
+    {
+      "id": 2,
+      "name": "BillTo"
+    },
+    {
+      "id": 3,
+      "name": "BillToValue"
+    },
+    {
+      "id": 4,
+      "name": "Date"
+    },
+    {
+      "id": 5,
+      "name": "DateValue"
+    },
+    {
+      "id": 6,
+      "name": "Invoice"
+    },
+    {
+      "id": 7,
+      "name": "InvoiceValue"
+    },
+    {
+      "id": 8,
+      "name": "ShipTo"
+    },
+    {
+      "id": 9,
+      "name": "ShipToValue"
+    },
+    {
+      "id": 10,
+      "name": "Subtotal"
+    },
+    {
+      "id": 11,
+      "name": "SubtotalValue"
+    },
+    {
+      "id": 12,
+      "name": "Total"
+    },
+    {
+      "id": 13,
+      "name": "TotalValue"
+    }
+  ],
+  "annotations": [
+    {
+      "id": 0,
+      "image_id": 0,
+      "category_id": 4,
+      "segmentation": [],
+      "bbox": [
+        752,
+        168,
+        140,
+        32
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 4480
+    },
+    {
+      "id": 1,
+      "image_id": 0,
+      "category_id": 5,
+      "segmentation": [],
+      "bbox": [
+        747,
+        205,
+        146,
+        35
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 5110
+    },
+    {
+      "id": 2,
+      "image_id": 0,
+      "category_id": 6,
+      "segmentation": [],
+      "bbox": [
+        901,
+        171,
+        129,
+        30
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 3870
+    },
+    {
+      "id": 3,
+      "image_id": 0,
+      "category_id": 7,
+      "segmentation": [],
+      "bbox": [
+        901,
+        205,
+        132,
+        34
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 4488
+    },
+    {
+      "id": 4,
+      "image_id": 0,
+      "category_id": 2,
+      "segmentation": [],
+      "bbox": [
+        93,
+        309,
+        130,
+        30
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 3900
+    },
+    {
+      "id": 5,
+      "image_id": 0,
+      "category_id": 3,
+      "segmentation": [],
+      "bbox": [
+        82,
+        340,
+        316,
+        136
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 42976
+    },
+    {
+      "id": 6,
+      "image_id": 0,
+      "category_id": 8,
+      "segmentation": [],
+      "bbox": [
+        739,
+        306,
+        128,
+        29
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 3712
+    },
+    {
+      "id": 7,
+      "image_id": 0,
+      "category_id": 9,
+      "segmentation": [],
+      "bbox": [
+        724,
+        341,
+        312,
+        135
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 42120
+    },
+    {
+      "id": 8,
+      "image_id": 0,
+      "category_id": 10,
+      "segmentation": [],
+      "bbox": [
+        881,
+        1374,
+        107,
+        32
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 3424
+    },
+    {
+      "id": 9,
+      "image_id": 0,
+      "category_id": 11,
+      "segmentation": [],
+      "bbox": [
+        1041,
+        1374,
+        129,
+        32
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 4128
+    },
+    {
+      "id": 10,
+      "image_id": 0,
+      "category_id": 12,
+      "segmentation": [],
+      "bbox": [
+        887,
+        1408,
+        105,
+        24
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 2520
+    },
+    {
+      "id": 11,
+      "image_id": 0,
+      "category_id": 13,
+      "segmentation": [],
+      "bbox": [
+        1037,
+        1404,
+        133,
+        36
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 4788
+    },
+    {
+      "id": 12,
+      "image_id": 0,
+      "category_id": 0,
+      "segmentation": [],
+      "bbox": [
+        883,
+        1469,
+        137,
+        34
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 4658
+    },
+    {
+      "id": 13,
+      "image_id": 0,
+      "category_id": 1,
+      "segmentation": [],
+      "bbox": [
+        1056,
+        1465,
+        117,
+        44
+      ],
+      "ignore": 0,
+      "iscrowd": 0,
+      "area": 5148
+    }
+  ],
+  "info": {
+    "year": 2022,
+    "version": "1.0",
+    "description": "",
+    "contributor": "Label Studio",
+    "url": "",
+    "date_created": "2022-04-28 08:21:44.846874"
+  }
+}
