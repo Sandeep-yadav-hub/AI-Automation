@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+</style>
+<script>
+    if("{{request.args['path']}}"!=""){
+        var path = "{{request.args['path']}}"
+    }
+</script>
+<body>
+    <div>
+        <div style="width: 90%;margin: auto;padding: 10px; display: flex;align-items: center;">
+            <!-- <h1 style="margin-right: 10px;">Images</h1> -->
+            {% if "path" not in request.args %}
+            <button id="createFolder" style="display: flex;justify-content: space-between;align-items: center;padding: 5px 10px;margin-top: 5px;background: transparent;border: 1px solid transparent;box-shadow: 0px 0px 4px gray;border-radius: 5px;cursor: pointer;">
+                <svg style="margin-right: 5px;" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0L10 2H18C18.5304 2 19.0391 2.21071 19.4142 2.58579C19.7893 2.96086 20 3.46957 20 4V14C20 14.5304 19.7893 15.0391 19.4142 15.4142C19.0391 15.7893 18.5304 16 18 16H2C0.89 16 0 15.1 0 14V2C0 0.89 0.89 0 2 0H8ZM13 5V8H10V10H13V13H15V10H18V8H15V5H13Z" fill="black"/>
+                </svg>
+                Create Folder
+            </button>
+            
+            
+            {% endif %}
+            {% if "path" in request.args %}
+            {% if "refrence" not in request.args['path']%}
+            <button id="createFolderForAnnotation" style="display: flex;justify-content: space-between;align-items: center;padding: 5px 10px;margin-top: 5px;background: transparent;border: 1px solid transparent;box-shadow: 0px 0px 4px gray;border-radius: 5px;cursor: pointer;margin-left: 5px;margin-right: 10px;">
+                <svg style="margin-right: 5px;" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0L10 2H18C18.5304 2 19.0391 2.21071 19.4142 2.58579C19.7893 2.96086 20 3.46957 20 4V14C20 14.5304 19.7893 15.0391 19.4142 15.4142C19.0391 15.7893 18.5304 16 18 16H2C0.89 16 0 15.1 0 14V2C0 0.89 0.89 0 2 0H8ZM13 5V8H10V10H13V13H15V10H18V8H15V5H13Z" fill="black"/>
+                </svg>
+                Upload Annotation
+            </button>
+            <button id="addImages" style="display: flex;justify-content: space-between;align-items: center;padding: 5px 10px;margin-top: 5px;background: transparent;border: 1px solid transparent;box-shadow: 0px 0px 4px gray;border-radius: 5px;cursor: pointer;">
+                <svg style="margin-right: 5px;" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0L10 2H18C18.5304 2 19.0391 2.21071 19.4142 2.58579C19.7893 2.96086 20 3.46957 20 4V14C20 14.5304 19.7893 15.0391 19.4142 15.4142C19.0391 15.7893 18.5304 16 18 16H2C0.89 16 0 15.1 0 14V2C0 0.89 0.89 0 2 0H8ZM13 5V8H10V10H13V13H15V10H18V8H15V5H13Z" fill="black"/>
+                </svg>
+                Add Images <span class="fileLength"></span>
+            </button>
+            <button id="addRefrence" style="display: flex;justify-content: space-between;align-items: center;padding: 5px 10px;margin-top: 5px;background: transparent;border: 1px solid transparent;box-shadow: 0px 0px 4px gray;border-radius: 5px;cursor: pointer;margin-left: 10px;">
+                <svg style="margin-right: 5px;" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0L10 2H18C18.5304 2 19.0391 2.21071 19.4142 2.58579C19.7893 2.96086 20 3.46957 20 4V14C20 14.5304 19.7893 15.0391 19.4142 15.4142C19.0391 15.7893 18.5304 16 18 16H2C0.89 16 0 15.1 0 14V2C0 0.89 0.89 0 2 0H8ZM13 5V8H10V10H13V13H15V10H18V8H15V5H13Z" fill="black"/>
+                </svg>
+                Add Refrence
+            </button>
+            <!-- <a href="/parseV2/{{request.args['path']}}" target="__blank" id="extractData" style="display: flex;justify-content: space-between;align-items: center;padding: 5px 10px;margin-top: 5px;background: transparent;border: 1px solid transparent;box-shadow: 0px 0px 4px gray;border-radius: 5px;cursor: pointer;margin-left: 10px;color: #000;text-decoration: none;"> -->
+            <button id="extractData" style="display: flex;justify-content: space-between;align-items: center;padding: 5px 10px;margin-top: 5px;background: transparent;border: 1px solid transparent;box-shadow: 0px 0px 4px gray;border-radius: 5px;cursor: pointer;margin-left: 10px;color: #000;text-decoration: none;">
+                <svg style="margin-right: 5px;" width="14" height="16" viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 22V18H16V22H0ZM16 8L8 16L0 8H5V0H11V8H16Z" fill="black"/>
+                </svg>
+                Extract Data
+            </button>
+            {% endif %}
+            <form id="addImagesToRefrence" action="/upload/{{request.args['path']}}/ref" method="post" enctype="multipart/form-data">
+                <input  type="file" name="photos" id="addImagesRefrence" style="display: none;">
+            </form>
+            <form id="addImagesToFolder" action="/upload/{{request.args['path']}}/images" method="post" enctype="multipart/form-data">
+                <input  type="file" name="photos" multiple id="addImagesFile" style="display: none;">
+            </form>
+            {% endif %}
+        </div>
+        {% if "path" in request.args %}
+        <p style="width: 90%;margin: auto;padding: 10px;">/{{request.args['path']}}</p>
+        {% endif %}
+        <p style="width: 90%;margin: auto;padding: 10px;">Total Files : ({{len}})</p>
+        <div style="display: grid;padding: 10px;grid-template-columns: repeat(4, 1fr);width: 90%;margin: auto;column-gap: 20px;row-gap: 20px;">
+            {% for folder in list %}
+                <div  style="box-shadow: 0px 0px 4px gray;border: 1px solid transparent;border-radius: 5px;display: flex;justify-content: space-between;align-items: center;height: 80px;padding: 10px;">
+                    <div onclick="showFileList('{{folder}}')" style="display: flex;justify-content: space-between;align-items: center;cursor: pointer;">
+                        <div style="margin-top: 5px;margin-right: 10px;">
+                            {% if "." in folder %}
+                            <svg width="26" height="32.5" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 7V1.5L14.5 7H9ZM2 0C0.89 0 0 0.89 0 2V18C0 18.5304 0.210714 19.0391 0.585786 19.4142C0.960859 19.7893 1.46957 20 2 20H14C14.5304 20 15.0391 19.7893 15.4142 19.4142C15.7893 19.0391 16 18.5304 16 18V6L10 0H2Z" fill="black"/>
+                            </svg>
+                            {% endif %}
+                            {% if "." not in folder %}
+                            <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 0H4C1.78 0 0 1.78 0 4V28C0 29.0609 0.421427 30.0783 1.17157 30.8284C1.92172 31.5786 2.93913 32 4 32H36C37.0609 32 38.0783 31.5786 38.8284 30.8284C39.5786 30.0783 40 29.0609 40 28V8C40 5.78 38.2 4 36 4H20L16 0Z" fill="black"/>
+                            </svg>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <p style="width: 200px;word-wrap: break-all;white-space: normal;">{{folder}}</p>
+                        </div>
+                    </div>
+                    <!-- {% if "." not in folder and "refrence" not in folder%}
+                    <a href="/parseV2/{{folder}}" target="__blank" style="position: relative;bottom: 20px;cursor: pointer;">
+                        <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 30V26H28V30H12ZM28 16L20 24L12 16H17V8H23V16H28ZM20 0C31 0 40 9 40 20C40 31 31 40 20 40C9 40 0 31 0 20C0 9 9 0 20 0ZM20 4C11.16 4 4 11.16 4 20C4 28.84 11.16 36 20 36C28.84 36 36 28.84 36 20C36 11.16 28.84 4 20 4Z" fill="black"/>
+                        </svg>
+                    </a>
+                    {% endif %} -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="createFolderModel" style="width: 30%;padding: 20px 20px;border-radius: 5px;border: 1px solid gray;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);background: white;">
+        <form action="/createFolder" method="post" style="display: flex;justify-content: space-between;align-items: center;">
+            <div style="box-shadow: 0px 0px 4px gray;width: 80%;background: transparent;padding: 5px 10px;border-radius: 5px;">
+                <input style="border: 1px solid transparent;width: 100%;outline: none;" placeholder="Folder Name" type="text" name="folderName" id="folderName">
+            </div>
+            <button type="submit" style="display: flex;justify-content: space-between;align-items: center;padding: 5px 10px;background: transparent;border: 1px solid transparent;box-shadow: 0px 0px 4px gray;border-radius: 5px;cursor: pointer;">Create</button>
+        </form>
+    </div>
+    <div id="extractionModel" style="position: absolute;width: 30%;padding: 20px 20px;border-radius: 5px;border: 1px solid gray;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);background: white;">
+        <form action="/parseV2/{{request.args['path']}}" target="__blank" method="get" style="align-items: center;">
+            <p style="margin-bottom: 10px;">How Many Similarities to Find?</p>
+            <div style="margin-bottom:10px;box-shadow: 0px 0px 4px gray;width: 100%;background: transparent;padding: 5px 10px;border-radius: 5px;">
+                <input style="border: 1px solid transparent;width: 100%;outline: none;" placeholder="How Many Similarities to Find" type="number" name="thresh" id="thresh" value="100">
+            </div>
+            <button type="submit" style="display: flex;justify-content: space-between;align-items: center;padding: 5px 10px;background: transparent;border: 1px solid transparent;box-shadow: 0px 0px 4px gray;border-radius: 5px;cursor: pointer;">Start</button>
+        </form>
+    </div>
+    <div id="createAnnotationFolderModel" style="width: 30%;padding: 20px 20px;border-radius: 5px;border: 1px solid gray;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);background: white;">
+        <form action="/upload/annotationsV2" method="post" enctype="multipart/form-data" style="justify-content: space-between;align-items: center;">
+            <h1 style="margin-bottom:20px ;">Upload Annotation file</h1>
+            <input style="width: 100%;margin-bottom: 10px;" type=file name="file">
+            <div style="box-shadow: 0px 0px 4px gray;width: 100%;background: transparent;padding: 5px 10px;border-radius: 5px;margin-bottom: 10px;">
+                <input style="border: 1px solid transparent;width: 100%;outline: none;" placeholder="image_id ('0' if only 1 image in json file)" type="text" name="imageId" id="imageId">
+            </div>
+            <div style="box-shadow: 0px 0px 4px gray;width: 100%;background: transparent;padding: 5px 10px;border-radius: 5px;margin-bottom: 10px;">
+                <input style="border: 1px solid transparent;width: 100%;outline: none;" placeholder="Folder Name" type="text" name="folderName" id="folderName" value="{{request.args['path']}}">
+            </div>
+            <button type="submit" style="display: flex;justify-content: space-between;align-items: center;padding: 5px 10px;background: transparent;border: 1px solid transparent;box-shadow: 0px 0px 4px gray;border-radius: 5px;cursor: pointer;margin-bottom: 10px;">Upload</button>
+            <!-- <span style="font-size: 12px">* Give Title something unique to diffrentiate between diffrent annotation to extract accordingly</span> -->
+        </form>
+    </div>
+</body>
+<script>
+    
+    function $selector(selector){
+        return document.querySelector(selector)
+    }
+    var creating = false
+    var extracting = false
+    if($selector("#extractionModel")!= null){
+        $selector("#extractionModel").style.display = "none"
+    }
+    if($selector("#extractData")!= null){
+        $selector("#extractData").addEventListener("click",function(){
+            console.log("hello",extracting)
+            if (extracting){
+                extracting = false
+                $selector("#extractionModel").style.display = "none"
+                return
+            }
+            extracting = true
+            $selector("#extractionModel").style.display = "initial"
+            $selector("#extractionModel").style.position = "absolute"
+        })
+    }
+    if($selector("#createFolderModel")!= null){
+        $selector("#createFolderModel").style.display = "none"
+    }
+    if($selector("#createFolder")!= null){
+        $selector("#createFolder").addEventListener("click",function(){
+            console.log("hello",creating)
+            if (creating){
+                creating = false
+                $selector("#createFolderModel").style.display = "none"
+                return
+            }
+            creating = true
+            $selector("#createFolderModel").style.display = "initial"
+            $selector("#createFolderModel").style.position = "absolute"
+        })
+    }
+    var creatingAnnot = false
+    if($selector("#createAnnotationFolderModel")!= null){
+        $selector("#createAnnotationFolderModel").style.display = "none"
+    }
+    if($selector("#createFolderForAnnotation")!= null){
+        $selector("#createFolderForAnnotation").addEventListener("click",function(){
+            console.log("hello",creatingAnnot)
+            if (creatingAnnot){
+                creatingAnnot = false
+                $selector("#createAnnotationFolderModel").style.display = "none"
+                return
+            }
+            creatingAnnot = true
+            $selector("#createAnnotationFolderModel").style.display = "initial"
+            $selector("#createAnnotationFolderModel").style.position = "absolute"
+        })
+    }
+    if($selector("#addImages")!= null){
+        $selector("#addImages").addEventListener("click",function(){
+            $selector("#addImagesFile").click()
+            $selector("#addImagesFile").onchange = function(){
+                let input = this.files;
+                console.log(input)
+                console.log(`/upload/${String(path)}/ref`)
+                let url = `/upload/${String(path)}/ref`
+                $selector(".fileLength").innerText = `(${input.length})`
+                $selector("#addImagesToFolder").submit()
+            }
+        })
+        
+    }
+    if($selector("#addRefrence")!= null){
+        $selector("#addRefrence").addEventListener("click",function(){
+            $selector("#addImagesRefrence").click()
+            $selector("#addImagesRefrence").onchange = function(){
+                let input = this.files;
+                console.log(`/upload/${String(path)}/images`)
+                let url = `/upload/${String(path)}/images`
+                $selector("#addImagesToRefrence").submit()
+            }
+        })
+        
+    }
+    
+    var isPointerEventInsideElement = function (event, element) {
+        var pos = {
+            x: event.targetTouches ? event.targetTouches[0].pageX : event.pageX,
+            y: event.targetTouches ? event.targetTouches[0].pageY : event.pageY
+        };
+        var rect = element.getBoundingClientRect();
+        return  pos.x < rect.right && pos.x > rect.left && pos.y < rect.bottom && pos.y > rect.top;
+    };
+
+    const showFileList = async(folder)=>{
+        if (!folder.includes(".") && !folder.includes("refrence")){
+            window.location.href = `/imageList?path=${folder}`
+        }else if (folder.includes("refrence")){
+            currentPath = window.location.search.split("=")[1]
+            window.location.href = `/imageList?path=${currentPath}/${folder}`
+        }
+    }
+    // function my(){
+    //     fetch({url:"",method:"GET"}).then(res=>{
+    //         console.log(res)
+    //     })
+    // }
+</script>
+</html>
