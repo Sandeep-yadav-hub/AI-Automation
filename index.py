@@ -365,6 +365,7 @@ def index():
 def imageList():
     if request.method == "GET":
         args = request.args
+        os.makedirs(os.path.join("./Images"), exist_ok=True) 
         list = os.listdir(os.path.join("./Images"))
         if "path" in args:
             list = os.listdir(os.path.join("./Images",args['path']))
