@@ -1,8 +1,6 @@
-from crypt import methods
+
 import json
-from flask import jsonify,send_from_directory,json,flash, make_response, jsonify,Flask,request,Response,send_file,redirect, url_for,render_template
-from werkzeug.exceptions import HTTPException
-import re
+from flask import send_from_directory,json,flash,Flask,request,redirect, url_for,render_template
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
@@ -12,9 +10,6 @@ from pytesseract import image_to_string
 import pytesseract
 import os
 
-
-import requests
-import io
 from PIL import Image
 import fitz
 import csv 

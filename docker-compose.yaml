@@ -10,15 +10,25 @@ services:
   #     MONGO_INITDB_ROOT_PASSWORD: example
   #   ports:
   #     - 27017:27017
-  
+
+  label_studio:
+    image: heartexlabs/label-studio:latest
+    container_name: label_studio
+    ports:
+      - 8508:8080
+    volumes:
+      - ./label-studio/data:/label-studio/data
+
   imageprocess :
-    image: imageprocess 
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: imageprocess 
     command: >
             sh -c "pip install xlsxwriter && python index.py"
     # tty: true
-    restart: always
+    # restart: always
     ports:
-      - 5000:5000
+      - 5001:5000
     volumes:
-        - ./application:/app
+        - ./:/app
