@@ -26,7 +26,7 @@ Note: docker engine and docker-compose is required
 docker-compose up
 ````
 ```
-    - Got to port mentioned in the docker-compose file
+    - Go to port mentioned in the docker-compose file
     - Create a folder (project)
     - Add Refrence (Important: use the exported image from label studio and not the original)
     - Add Images 
